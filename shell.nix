@@ -4,5 +4,5 @@
   with pkgs;
   stdenv.mkDerivation {
     name = "clox";
-    buildInputs = [];
+    buildInputs = [ cmake ];
   }
