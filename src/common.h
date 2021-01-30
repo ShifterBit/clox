@@ -6,5 +6,3 @@
 #include <stdint.h>
 
 #endif
-
-
