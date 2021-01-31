@@ -5,7 +5,7 @@
   stdenv.mkDerivation {
     name = "clox";
     src = ./.;
-    buildInputs = [ cmake ];
+    buildInputs = [ cmake clang-format ];
 
     installPhase = ''
     mkdir -p $out/bin
