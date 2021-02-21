@@ -1,9 +1,9 @@
+#include "vm.h"
 #include "chunk.h"
 #include "common.h"
+#include "compiler.h"
 #include "debug.h"
 #include "value.h"
-#include "vm.h"
-#include "compiler.h"
 VM vm;
 
 static void resetStack() { vm.stackTop = vm.stack; }

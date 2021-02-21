@@ -102,11 +102,10 @@ static void emitBytes(uint8_t byte1, uint8_t byte2) {
 }
 
 static void emitReturn() { emitByte(OP_RETURN); }
-
-static uint8_t makeContant(Value value) {
+static uint8_t makeConstant(Value value) {
   int constant = addConstant(currentChunk(), value);
   if (constant > UINT8_MAX) {
-    error("Too many constants in one chunk");
+    error("Too many constants in one chunk.");
     return 0;
   }
 
@@ -114,7 +113,7 @@ static uint8_t makeContant(Value value) {
 }
 
 static void emitConstant(Value value) {
-  emitBytes(OP_CONSTANT, makeContant(value));
+  emitBytes(OP_CONSTANT, makeConstant(value));
 }
 
 static void endCompiler() {
@@ -235,7 +234,7 @@ static void parsePrecedence(Precedence precedence) {
 
   prefixRule();
 
-  while (precedence <= getRule(parser.current.type)->precedence) {
+   while (precedence <= getRule(parser.current.type)->precedence) {
     advance();
     ParseFn infixRule = getRule(parser.previous.type)->infix;
     infixRule();
