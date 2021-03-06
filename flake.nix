@@ -1,5 +1,5 @@
 {
-  description = "CLox";
+  description = "clox";
   # Provides abstraction to boiler-code when specifying multi-platform outputs.
   inputs.flake-utils.url = "github:numtide/flake-utils";
   outputs = { self, nixpkgs, flake-utils }:
@@ -8,15 +8,13 @@
         pkgs = nixpkgs.legacyPackages.${system};
       in
       {
-        devShell = with pkgs; clangStdenv.mkDerivation {
-          name = "clox";
-          nativebuildInputs = [ cmake ];
+        devShell = with pkgs; mkShell {
+          buildInputs = [ cmake clang ];
         };
         defaultPackage = with pkgs; clangStdenv.mkDerivation {
           name = "clox";
-          src = ./.;
-          nativebuildInputs = [ cmake ];
-
+          src = self;
+          buildInputs = [ cmake clang ];
           installPhase = ''
             mkdir -p $out/bin
             cp src/clox $out/bin
