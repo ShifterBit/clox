@@ -8,10 +8,11 @@
         pkgs = nixpkgs.legacyPackages.${system};
       in
       {
-        devShell = with pkgs; mkShell {
+        devShell = with pkgs; clangStdenv.mkDerivation {
+          name = "clox-dev";
           buildInputs = [ cmake ];
         };
-        defaultPackage = with pkgs; stdenv.mkDerivation {
+        defaultPackage = with pkgs; clangStdenv.mkDerivation {
           name = "clox";
           src = self;
           buildInputs = [ cmake ];
