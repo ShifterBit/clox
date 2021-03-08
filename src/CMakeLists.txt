@@ -8,5 +8,6 @@ add_executable(clox
   memory.c memory.h
   scanner.c scanner.h
   compiler.c compiler.h
+  object.h
 
   )
