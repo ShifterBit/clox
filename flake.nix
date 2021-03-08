@@ -9,12 +9,12 @@
       in
       {
         devShell = with pkgs; mkShell {
-          buildInputs = [ cmake clang ];
+          buildInputs = [ cmake ];
         };
-        defaultPackage = with pkgs; clangStdenv.mkDerivation {
+        defaultPackage = with pkgs; stdenv.mkDerivation {
           name = "clox";
           src = self;
-          buildInputs = [ cmake clang ];
+          buildInputs = [ cmake ];
           installPhase = ''
             mkdir -p $out/bin
             cp src/clox $out/bin
