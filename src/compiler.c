@@ -6,6 +6,7 @@
 #include "common.h"
 #include "compiler.h"
 #include "object.h"
+#include "memory.h"
 #include "scanner.h"
 #include "value.h"
 #include "vm.h"
@@ -13,6 +14,7 @@
 #ifdef DEBUG_PRINT_CODE
 #include "debug.h"
 #endif
+
 
 typedef struct {
   Token current;
