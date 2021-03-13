@@ -10,7 +10,7 @@
       {
         devShell = with pkgs; clangStdenv.mkDerivation {
           name = "clox-dev";
-          buildInputs = [ cmake ];
+          buildInputs = [ cmake clang ];
         };
         defaultPackage = with pkgs; clangStdenv.mkDerivation {
           name = "clox";
