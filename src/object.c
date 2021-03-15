@@ -23,7 +23,7 @@ static ObjString *allocateString(char *chars, int length) {
   return string;
 }
 
-ObjString* takeString(char* chars, int length) {
+ObjString *takeString(char *chars, int length) {
   return allocateString(chars, length);
 }
 
